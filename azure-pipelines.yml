@@ -17,10 +17,13 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+<<<<<<< HEAD
 - task: NuGetToolInstaller@0
   inputs:
     versionSpec: '5.9.1'
 
+=======
+>>>>>>> c3e47b3a361fa514b721234a70849779f5edc434
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
@@ -36,6 +39,7 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
+<<<<<<< HEAD
 - task: NuGetCommand@2
   displayName: 'Restore project dependencies'
   inputs:
@@ -43,6 +47,13 @@ steps:
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
     vstsFeed: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'
+=======
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+>>>>>>> c3e47b3a361fa514b721234a70849779f5edc434
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
